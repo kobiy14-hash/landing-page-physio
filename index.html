@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="דף נחיתה לפיזיותרפיסטית – טיפול מותאם אישית, גישה עדינה ותוצאות מדידות." />
+  <title>שם הפיזיותרפיסטית | פיזיותרפיה</title>
+
+  <style>
+    :root{
+      --brand:#11B5B7;
+      --brand2:#0B7FA0;
+      --ink:#0F172A;
+      --muted:#64748b;
+      --bg:#F4F8F9;
+      --surface:#FFFFFF;
+      --line: rgba(15,23,42,0.10);
+      --shadow: 0 18px 44px rgba(15,23,42,0.12);
+      --shadow2: 0 12px 32px rgba(15,23,42,0.10);
+      --radius: 22px;
+      --maxw: 1120px;
+      --focus: 0 0 0 4px rgba(17,181,183,0.25);
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+                   "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      text-align:right;
+    }
+    a{ color: inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    .container{
+      width: min(100% - 32px, var(--maxw));
+      margin-inline:auto;
+    }
+
+    /* ===== Header ===== */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width:max-content;
+    }
+    .mark{
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: radial-gradient(140% 140% at 20% 10%, var(--brand), var(--brand2));
+      box-shadow: 0 18px 28px rgba(11,127,160,0.22);
+      position:relative;
+      flex: 0 0 auto;
+    }
+    .mark::after{
+      content:"";
+      position:absolute;
+      inset: 11px 10px 11px 10px;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.72);
+    }
+    .brand strong{ display:block; font-size: 1.02rem; letter-spacing:-0.2px; }
+    .brand span{ display:block; color: var(--muted); font-size: 0.84rem; }
+
+    nav{
+      display:flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .nav-link{
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.95rem;
+      transition: background .2s ease, color .2s ease;
+      outline:none;
+    }
+    .nav-link:hover{ background: rgba(15,23,42,0.06); color: var(--ink); }
+    .nav-link[aria-current="page"]{
+      background: rgba(17,181,183,0.16);
+      color: var(--ink);
+    }
+
+    .header-cta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      min-width:max-content;
+    }
+
+    /* ===== Buttons ===== */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 900;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, filter .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      white-space: nowrap;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn:focus-visible{ box-shadow: var(--focus); }
+    .btn-primary{
+      background: radial-gradient(130% 130% at 20% 10%, var(--brand), var(--brand2));
+      color:#fff;
+      box-shadow: 0 18px 30px rgba(11,127,160,0.18);
+    }
+    .btn-primary:hover{ filter: brightness(0.98); }
+    .btn-ghost{
+      background: rgba(255,255,255,0.78);
+      border-color: rgba(15,23,42,0.10);
+      color: var(--ink);
+    }
+    .btn-ghost:hover{ background: rgba(255,255,255,0.95); }
+    .btn-small{ padding: 10px 14px; font-size: 0.95rem; }
+    .icon{ width: 18px; height: 18px; flex: 0 0 auto; }
+
+    /* ===== Section separation ===== */
+    section{
+      padding: 92px 0;
+      border-top: 1px solid rgba(15,23,42,0.08);
+      background: var(--bg);
+    }
+    section.alt{
+      background: linear-gradient(180deg, rgba(17,181,183,0.07), rgba(17,181,183,0.00) 60%);
+    }
+    .section-title{
+      font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2.2rem);
+      margin: 0 0 14px;
+      letter-spacing: -0.6px;
+    }
+    .section-sub{
+      margin: 0 0 30px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 75ch;
+    }
+
+    /* ===== HERO (full width + left big rounded image) ===== */
+    .hero{
+      position:relative;
+      padding: 64px 0 84px;
+      border-top:none;
+      min-height: 78vh;
+      display:flex;
+      align-items:center;
+      background:
+        url("https://images.unsplash.com/photo-1580281658629-63a3c67dff5c?auto=format&fit=crop&w=2200&q=80")
+        center/cover no-repeat;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 420px at 80% 20%, rgba(17,181,183,0.35), transparent 60%),
+        linear-gradient(90deg, rgba(11,18,32,0.86), rgba(11,18,32,0.42));
+      pointer-events:none;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity: 0.22;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items:center;
+    }
+    .hero-copy{
+      color:#F8FAFC;
+      max-width: 72ch;
+    }
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      font-weight: 900;
+      color: rgba(248,250,252,0.92);
+      margin-bottom: 14px;
+    }
+    .kicker .dot{
+      width: 8px; height: 8px; border-radius: 999px; background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(17,181,183,0.14);
+    }
+    .hero-h1{
+      margin: 0 0 12px;
+      font-size: clamp(2.0rem, 1.4rem + 2.1vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.8px;
+    }
+    .hero-p{
+      margin: 0 0 18px;
+      color: rgba(248,250,252,0.90);
+      font-size: 1.08rem;
+    }
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin: 18px 0 26px;
+      font-weight: 900;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      color: rgba(248,250,252,0.92);
+      font-size: 0.95rem;
+    }
+    .hero-actions{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .hero-media{
+      justify-self: start;
+      align-self:center;
+    }
+    .hero-media img{
+      width: min(420px, 100%);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 28px;
+      box-shadow: 0 34px 70px rgba(0,0,0,0.38);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    /* ===== Cards (services like reference) ===== */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(15,23,42,0.10);
+      border-radius: 22px;
+      overflow:hidden;
+      box-shadow: var(--shadow2);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{
+      transform: translateY(-8px);
+      box-shadow: 0 24px 46px rgba(15,23,42,0.14);
+    }
+    .card img{
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .card-body{ padding: 20px; }
+    .card-body h3{ margin: 0 0 8px; letter-spacing:-0.3px; }
+    .card-body p{ margin: 0 0 12px; color: var(--muted); }
+    .learn{
+      color: var(--brand2);
+      font-weight: 900;
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      border-bottom: 1px dashed rgba(11,127,160,0.45);
+      padding-bottom: 2px;
+    }
+
+    /* ===== About ===== */
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items:center;
+    }
+    .about-card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(15,23,42,0.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .about-img{
+      border-radius: 26px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,23,42,0.10);
+    }
+    .about-img img{
+      width:100%;
+      height: 360px;
+      object-fit: cover;
+    }
+    .bullets{
+      margin: 14px 0 0;
+      padding: 0 18px 0 0;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 8px 0; }
+
+    /* ===== CTA band ===== */
+    .cta-band{
+      margin-top: 22px;
+      background: linear-gradient(135deg, rgba(17,181,183,0.16), rgba(11,127,160,0.10));
+      border: 1px solid rgba(17,181,183,0.22);
+      border-radius: 28px;
+      padding: 18px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cta-band strong{ font-size: 1.05rem; }
+    .cta-band span{ color: var(--muted); }
+
+    /* ===== Testimonials ===== */
+    .testimonials-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .t-card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(15,23,42,0.10);
+      border-radius: 22px;
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .avatar{
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      overflow:hidden;
+      flex: 0 0 auto;
+      border: 1px solid rgba(15,23,42,0.10);
+      box-shadow: 0 10px 22px rgba(15,23,42,0.10);
+      background: radial-gradient(130% 130% at 20% 10%, rgba(17,181,183,0.55), rgba(11,127,160,0.25));
+      display:grid;
+      place-items:center;
+      font-weight: 900;
+      color: #073545;
+    }
+    .avatar img{ width:100%; height:100%; object-fit: cover; }
+    .quote{ margin: 0 0 8px; color: var(--ink); }
+    .who{ margin: 0; color: var(--muted); font-weight: 900; font-size: 0.95rem; }
+
+    /* ===== Contact ===== */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    .panel{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(15,23,42,0.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 22px;
+    }
+    .info-row{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(15,23,42,0.10);
+    }
+    .info-row:last-child{ border-bottom: none; }
+    .info-row strong{ display:block; }
+    .info-row span{ color: var(--muted); }
+    .link{
+      color: var(--brand2);
+      font-weight: 900;
+      border-bottom: 1px dashed rgba(11,127,160,0.45);
+      padding-bottom: 2px;
+    }
+
+    label{ display:block; font-weight: 900; margin: 10px 0 6px; }
+    input, textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,0.16);
+      background: rgba(255,255,255,0.98);
+      font: inherit;
+      color: var(--ink);
+      outline:none;
+      transition: box-shadow .15s ease, border-color .15s ease;
+      text-align:right;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus{
+      border-color: rgba(17,181,183,0.65);
+      box-shadow: var(--focus);
+    }
+    .hint{ color: var(--muted); font-size: 0.92rem; margin: 10px 0 0; }
+    .form-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; align-items:center; }
+    .status{
+      margin-top: 12px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,0.14);
+      background: rgba(15,23,42,0.03);
+      color: var(--muted);
+      display:none;
+    }
+    .status.ok{ border-color: rgba(17,181,183,0.28); background: rgba(17,181,183,0.10); color:#084a50; }
+    .status.err{ border-color: rgba(220,38,38,0.22); background: rgba(220,38,38,0.06); color:#7f1d1d; }
+
+    /* ===== Footer ===== */
+    footer{
+      padding: 34px 0 44px;
+      border-top: 1px solid rgba(15,23,42,0.08);
+      background: #fff;
+    }
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .small{ color: var(--muted); font-size: 0.92rem; }
+
+    /* ===== Floating & ToTop ===== */
+    .floating{
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 70;
+    }
+    .fab{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(15,23,42,0.10);
+      box-shadow: 0 18px 30px rgba(15,23,42,0.14);
+      font-weight: 900;
+      cursor:pointer;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .fab:hover{ background:#fff; transform: translateY(-1px); }
+    .fab:focus-visible{ box-shadow: var(--focus), 0 18px 30px rgba(15,23,42,0.14); }
+    .fab .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--brand);
+      box-shadow: 0 0 0 6px rgba(17,181,183,0.14);
+    }
+    .fab.whatsapp .dot{ background: #22C55E; box-shadow: 0 0 0 6px rgba(34,197,94,0.14); }
+
+    .to-top{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(15,23,42,0.10);
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 18px 30px rgba(15,23,42,0.14);
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      opacity: 0;
+      pointer-events:none;
+      transform: translateY(8px);
+      transition: opacity .2s ease, transform .2s ease, background .15s ease;
+      z-index: 70;
+    }
+    .to-top:hover{ background:#fff; }
+    .to-top.show{ opacity: 1; pointer-events:auto; transform: translateY(0); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 1020px){
+      .header-cta{ display:none; }
+    }
+    @media (max-width: 980px){
+      .hero-inner{ grid-template-columns: 1fr; }
+      .hero-media{ justify-self:center; }
+      .about-grid{ grid-template-columns: 1fr; }
+      .cards{ grid-template-columns: 1fr; }
+      .testimonials-grid{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      section{ padding: 76px 0; }
+    }
+    @media (max-width: 520px){
+      .floating{ left: 12px; bottom: 12px; }
+      .to-top{ right: 12px; bottom: 12px; }
+      .hero{ min-height: 82vh; padding: 60px 0 74px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      *{ transition:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="מעבר לראש הדף">
+        <span class="mark" aria-hidden="true"></span>
+        <span>
+          <strong>שם הפיזיותרפיסטית</strong>
+          <span>פיזיותרפיה • טיפול מותאם אישית</span>
+        </span>
+      </a>
+
+      <nav aria-label="ניווט ראשי">
+        <a class="nav-link" href="#home">בית</a>
+        <a class="nav-link" href="#about">אודות</a>
+        <a class="nav-link" href="#services">למי הטיפול מיועד</a>
+        <a class="nav-link" href="#testimonials">המלצות</a>
+        <a class="nav-link" href="#contact">צור קשר</a>
+      </nav>
+
+      <div class="header-cta" aria-label="קיצורי יצירת קשר">
+        <a class="btn btn-small btn-ghost" href="#contact" aria-label="קפיצה לצור קשר">שלחי הודעה</a>
+        <a class="btn btn-small btn-primary" href="#contact" aria-label="קביעת תור">קבעי תור</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="home" class="hero" role="main" aria-label="סקשן פתיחה">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <div class="kicker"><span class="dot" aria-hidden="true"></span> קליניקה פרטית • יחס אישי • תהליך ברור</div>
+        <h1 class="hero-h1">פיזיותרפיה מודרנית שמחזירה אותך לתנועה חופשית</h1>
+        <p class="hero-p">
+          פיזיותרפיסטית <strong>[שם]</strong> עם גישה רגועה ומדויקת:
+          אבחון מקצועי, תרגול נכון ותוכנית מותאמת—כדי להפחית כאב, לשפר תנועה ולחזור לשגרה בביטחון.
+        </p>
+
+        <div class="trust" aria-label="חיווי אמון">
+          <span class="pill">טיפול מותאם אישית</span>
+          <span class="pill">גישה עדינה</span>
+          <span class="pill">תוצאות מדידות</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact" aria-label="קבעי תור עכשיו">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 3v3M17 3v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 7h16v14H4V7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M7 11h10M7 15h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            קבעי תור
+          </a>
+
+          <a class="btn btn-ghost" id="waHero" href="#" aria-label="שלחי וואטסאפ">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 12a8 8 0 0 1-12.3 6.9L4 20l1.2-3.5A8 8 0 1 1 20 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9.2 10.3c.2-.5.6-.6 1-.5l.7.2c.3.1.5.4.4.7-.1.3-.1.7.1 1.1.3.7 1.5 1.8 2.2 2.2.4.2.8.2 1.1.1.3-.1.6.1.7.4l.2.7c.1.4 0 .8-.5 1-1.1.5-2.9-.5-4.7-2.3-1.8-1.8-2.8-3.6-2.3-4.7Z" fill="currentColor" opacity=".9"/>
+            </svg>
+            שלחי וואטסאפ
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-media" aria-label="תמונה מרובעת של טיפול">
+        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+             alt="דוגמה לתמונת טיפול פיזיותרפיה" />
+      </aside>
+    </div>
+  </main>
+
+  <section id="about" class="alt" aria-label="אודותיי">
+    <div class="container">
+      <h2 class="section-title">אודותיי</h2>
+      <p class="section-sub">
+        אני פיזיותרפיסטית <strong>[שם]</strong>, מאמינה בשילוב של אבחון מדויק, תרגול נכון והקשבה אמיתית לגוף—
+        כדי להגיע לתוצאות שנשארות לאורך זמן.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <p style="margin-top:0;">
+            בכל טיפול אנחנו בונות יחד תהליך ברור: מבינות מה מקור הכאב או המגבלה, מגדירות יעד ריאלי,
+            ומתקדמות שלב-אחר-שלב—עם כלים פרקטיים שתוכלי ליישם גם בבית.
+          </p>
+          <p style="margin-bottom:0;">
+            הגישה שלי מתמקדת לא רק בהקלה מיידית, אלא גם במניעה: חיזוק, יציבה, תבניות תנועה נכונות והרגלים בריאים.
+          </p>
+          <ul class="bullets">
+            <li>אבחון מקצועי + תוכנית טיפול אישית</li>
+            <li>תרגול פונקציונלי פשוט וברור</li>
+            <li>מעקב התקדמות ושיפור עקבי</li>
+            <li>גישה רגועה, מכבדת ומדויקת</li>
+          </ul>
+
+          <div class="cta-band" style="margin-top:18px;">
+            <div>
+              <strong>רוצה לדעת אם זה מתאים לך?</strong><br />
+              <span>שלחי הודעה קצרה ואחזור אלייך.</span>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="#contact">קבעי תור</a>
+              <a class="btn btn-ghost" id="waAbout" href="#">שלחי וואטסאפ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-img" aria-label="תמונה לדוגמה של טיפול">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1400&q=80"
+               alt="דוגמה לפיזיותרפיסטית בטיפול" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" aria-label="למי הטיפול מיועד">
+    <div class="container">
+      <h2 class="section-title">למי הטיפול מיועד</h2>
+      <p class="section-sub">
+        כמו בתמונה ששלחת—כרטיסים נקיים עם תמונה, כותרת ותיאור קצר. את התמונות נחליף אחר כך לתמונות אמיתיות של הקליניקה.
+      </p>
+
+      <div class="cards">
+        <article class="card" aria-label="שיקום אחרי פציעות">
+          <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde?auto=format&fit=crop&w=1400&q=80"
+               alt="שיקום לאחר פציעה - דוגמה" />
+          <div class="card-body">
+            <h3>שיקום אחרי פציעות/ניתוחים</h3>
+            <p>תהליך הדרגתי לחזרה בטוחה לתנועה מלאה: טווחים, חיזוק ויציבות—בלי להעמיס יותר מדי.</p>
+            <a class="learn" href="#contact" aria-label="לפרטים על שיקום אחרי פציעות">לפרטים <span aria-hidden="true">←</span></a>
+          </div>
+        </article>
+
+        <article class="card" aria-label="כאבי גב וצוואר">
+          <img src="https://images.unsplash.com/photo-1580281657527-47a5f4e9e4c0?auto=format&fit=crop&w=1400&q=80"
+               alt="כאבי גב וצוואר - דוגמה" />
+          <div class="card-body">
+            <h3>כאבי גב/צוואר ויציבה</h3>
+            <p>שיפור יציבה והפחתת עומסים כדי לשחרר כאב ולשפר איכות חיים—עם תרגול ברור לבית.</p>
+            <a class="learn" href="#contact" aria-label="לפרטים על כאבי גב וצוואר">לפרטים <span aria-hidden="true">←</span></a>
+          </div>
+        </article>
+
+        <article class="card" aria-label="ספורטאים ושיפור תנועה">
+          <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1400&q=80"
+               alt="ספורטאים ושיפור תנועה - דוגמה" />
+          <div class="card-body">
+            <h3>ספורטאים ושיפור תנועה</h3>
+            <p>דיוק טכניקה ומניעת פציעות בעזרת תרגול מותאם אישית—כדי להתקדם בצורה בטוחה.</p>
+            <a class="learn" href="#contact" aria-label="לפרטים על ספורטאים ושיפור תנועה">לפרטים <span aria-hidden="true">←</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="cta-band" role="region" aria-label="קריאה לפעולה אחרי הסקשן">
+        <div>
+          <strong>רוצה להתייעץ לפני שקובעים?</strong><br />
+          <span>שלחי הודעה קצרה ואכוון אותך למסלול הנכון.</span>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#contact">קבעי תור</a>
+          <a class="btn btn-ghost" id="waAfterServices" href="#">שלחי וואטסאפ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="alt" aria-label="המלצות">
+    <div class="container">
+      <h2 class="section-title">לקוחות ממליצים</h2>
+      <p class="section-sub">
+        כאן שמתי תמונות דוגמה. אם אין תמונה—אפשר להציג ראשי תיבות. נחליף לתוכן אמיתי בסוף.
+      </p>
+
+      <div class="testimonials-grid">
+        <article class="t-card" aria-label="המלצה 1">
+          <div class="avatar" aria-label="תמונת ממליצה">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" alt="ממליצה - דוגמה"/>
+          </div>
+          <div>
+            <p class="quote">“הגעתי עם כאבי גב חזקים, ותוך כמה מפגשים כבר הרגשתי שינוי. ההסברים ברורים והתרגילים באמת עובדים.”</p>
+            <p class="who">— מיכל ל.</p>
+          </div>
+        </article>
+
+        <article class="t-card" aria-label="המלצה 2">
+          <div class="avatar" aria-label="ראשי תיבות">ר״ש</div>
+          <div>
+            <p class="quote">“ליווי מקצועי וסבלני. קיבלתי תוכנית תרגול מסודרת לבית ומעקב התקדמות אמיתי.”</p>
+            <p class="who">— רון ש.</p>
+          </div>
+        </article>
+
+        <article class="t-card" aria-label="המלצה 3">
+          <div class="avatar" aria-label="תמונת ממליץ">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="ממליץ - דוגמה"/>
+          </div>
+          <div>
+            <p class="quote">“חזרתי לריצה בצורה בטוחה אחרי פציעה. שילוב מצוין של טיפול עדין ותרגול מדויק.”</p>
+            <p class="who">— דניאל א.</p>
+          </div>
+        </article>
+
+        <article class="t-card" aria-label="המלצה 4">
+          <div class="avatar" aria-label="ראשי תיבות">ש״מ</div>
+          <div>
+            <p class="quote">“הטיפול היה בדיוק בקצב הנכון. הרגשתי שמבינים אותי ושאני בידיים טובות.”</p>
+            <p class="who">— שרון מ.</p>
+          </div>
+        </article>
+
+        <article class="t-card" aria-label="המלצה 5">
+          <div class="avatar" aria-label="תמונת ממליצה">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80" alt="ממליצה - דוגמה"/>
+          </div>
+          <div>
+            <p class="quote">“אהבתי את הגישה הפרקטית: מה עושים עכשיו, מה לתרגל בבית ואיך לשמור על התוצאה.”</p>
+            <p class="who">— עדי ק.</p>
+          </div>
+        </article>
+
+        <article class="t-card" aria-label="המלצה 6">
+          <div class="avatar" aria-label="ראשי תיבות">נ״ב</div>
+          <div>
+            <p class="quote">“מענה מהיר ויחס אישי. כבר בשיחת הטלפון הבנתי שאני במקום הנכון.”</p>
+            <p class="who">— נועה ב.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-label="צור קשר">
+    <div class="container">
+      <h2 class="section-title">צור קשר</h2>
+      <p class="section-sub">כתבי לי כמה מילים ואחזור אלייך בהקדם. אפשר גם לקבוע תור בוואטסאפ או בשיחה.</p>
+
+      <div class="contact-grid">
+        <div class="panel" aria-label="פרטי קשר">
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 16.9v3a2 2 0 0 1-2.2 2c-3.1-.3-6.1-1.4-8.7-3.2-2.5-1.7-4.6-3.9-6.3-6.3C2.5 9.8 1.4 6.8 1.1 3.7A2 2 0 0 1 3 1.5h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L7 9.1a16 16 0 0 0 7.9 7.9l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.7A2 2 0 0 1 22 16.9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>טלפון</strong>
+              <span><a class="link" id="phoneLink" href="tel:+972500000000">+972-50-000-0000</a> (placeholder)</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="m4 8 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>אימייל</strong>
+              <span><a class="link" href="mailto:clinic@example.com">clinic@example.com</a> (placeholder)</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 21s-7-4.6-7-11a7 7 0 0 1 14 0c0 6.4-7 11-7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 10.8a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <div>
+              <strong>כתובת קליניקה</strong>
+              <span>[רחוב + מספר], [עיר] (placeholder)</span>
+            </div>
+          </div>
+
+          <div class="info-row">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 8v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            <div>
+              <strong>שעות פעילות</strong>
+              <span>[א׳–ה׳ 09:00–19:00] (placeholder)</span>
+            </div>
+          </div>
+
+          <div class="cta-band" style="margin-top:16px;">
+            <div>
+              <strong>הכי מהר?</strong><br />
+              <span>לחיצה אחת לוואטסאפ או חיוג.</span>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn btn-primary" id="waContact" href="#" aria-label="שליחת וואטסאפ">שלחי וואטסאפ</a>
+              <a class="btn btn-ghost" id="callContact" href="tel:+972500000000" aria-label="חיוג">התקשרי</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" aria-label="טופס יצירת קשר">
+          <form id="contactForm" novalidate>
+            <label for="name">שם מלא</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="לדוגמה: יעל כהן" required />
+
+            <label for="phone">טלפון</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="לדוגמה: 050-0000000" required />
+
+            <label for="message">הודעה</label>
+            <textarea id="message" name="message" placeholder="מה חשוב שאדע? (כאב/מטרה/זמן פנוי לתור)"></textarea>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit" aria-label="שליחת הטופס">שליחה</button>
+              <button class="btn btn-ghost" type="button" id="fillDemo" aria-label="מילוי דוגמה">מלאי דוגמה</button>
+            </div>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+            <p class="hint">הטופס מדפיס נתונים ל-console. אפשר לחבר בעתיד webhook/WhatsApp API.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <strong>שם הפיזיותרפיסטית</strong>
+          <div class="small">פיזיותרפיסטית [שם] • טיפול מקצועי, רגוע ומדויק</div>
+        </div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <a class="btn btn-small btn-primary" href="#contact">קבעי תור</a>
+          <a class="btn btn-small btn-ghost" id="waFooter" href="#">שלחי וואטסאפ</a>
+        </div>
+      </div>
+
+      <div class="small" style="margin-top:14px;">
+        טלפון: <a class="link" href="tel:+972500000000">+972-50-000-0000</a> • אימייל: <a class="link" href="mailto:clinic@example.com">clinic@example.com</a> • כתובת: [רחוב + מספר], [עיר]
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating" aria-label="כפתורי יצירת קשר צפים">
+    <button class="fab whatsapp" id="fabWhatsApp" type="button" aria-label="פתיחת וואטסאפ">
+      <span class="dot" aria-hidden="true"></span>
+      וואטסאפ
+    </button>
+    <a class="fab" id="fabCall" href="tel:+972500000000" aria-label="חיוג טלפוני">
+      <span class="dot" aria-hidden="true"></span>
+      התקשרי
+    </a>
+  </div>
+
+  <button class="to-top" id="toTop" type="button" aria-label="חזרה למעלה">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <path d="m6 11 6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <script>
+    // =========
+    // החלף כאן לטלפון/וואטסאפ אמיתיים
+    // =========
+    const PHONE_E164 = "+972500000000";   // placeholder
+    const WA_E164 = "972500000000";       // placeholder (בלי +)
+    const WA_DEFAULT_TEXT = "היי, אשמח לקבוע תור לפיזיותרפיה. אפשר לשאול לגבי זמינות?";
+
+    const qs = (s, el=document) => el.querySelector(s);
+    const qsa = (s, el=document) => [...el.querySelectorAll(s)];
+
+    function makeWhatsAppLink(text){
+      const msg = encodeURIComponent(text || WA_DEFAULT_TEXT);
+      return `https://wa.me/${WA_E164}?text=${msg}`;
+    }
+
+    function initContactLinks(){
+      const phoneLink = qs("#phoneLink");
+      if (phoneLink) {
+        phoneLink.textContent = PHONE_E164.replace("+972", "+972-");
+        phoneLink.href = `tel:${PHONE_E164}`;
+      }
+      const callContact = qs("#callContact");
+      if (callContact) callContact.href = `tel:${PHONE_E164}`;
+      const fabCall = qs("#fabCall");
+      if (fabCall) fabCall.href = `tel:${PHONE_E164}`;
+
+      ["#waHero", "#waAbout", "#waAfterServices", "#waContact", "#waFooter"].forEach(sel => {
+        const el = qs(sel);
+        if (el) el.href = makeWhatsAppLink();
+      });
+
+      const fabWhatsApp = qs("#fabWhatsApp");
+      if (fabWhatsApp) {
+        fabWhatsApp.addEventListener("click", () => {
+          window.open(makeWhatsAppLink(), "_blank", "noopener,noreferrer");
+        });
+      }
+    }
+
+    function initActiveNav(){
+      const sections = ["home","about","services","testimonials","contact"]
+        .map(id => qs("#" + id)).filter(Boolean);
+      const links = qsa("nav .nav-link");
+      const linkById = new Map(links.map(a => [a.getAttribute("href").replace("#",""), a]));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          links.forEach(a => a.removeAttribute("aria-current"));
+          const active = linkById.get(id);
+          if (active) active.setAttribute("aria-current", "page");
+        });
+      }, { threshold: 0.6 });
+
+      sections.forEach(sec => observer.observe(sec));
+    }
+
+    function initToTop(){
+      const btn = qs("#toTop");
+      if (!btn) return;
+      const toggle = () => btn.classList.toggle("show", window.scrollY > 650);
+      toggle();
+      window.addEventListener("scroll", toggle, { passive: true });
+      btn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    }
+
+    function initForm(){
+      const form = qs("#contactForm");
+      const status = qs("#formStatus");
+      const fillBtn = qs("#fillDemo");
+      if (!form || !status) return;
+
+      const showStatus = (type, msg) => {
+        status.className = "status " + (type || "");
+        status.textContent = msg;
+        status.style.display = "block";
+      };
+
+      const isPhoneLikelyValid = (val) => (val || "").replace(/\D/g, "").length >= 9;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        status.style.display = "none";
+
+        const name = qs("#name").value.trim();
+        const phone = qs("#phone").value.trim();
+        const message = qs("#message").value.trim();
+
+        if (name.length < 2) { showStatus("err", "נא להזין שם מלא (לפחות 2 תווים)."); qs("#name").focus(); return; }
+        if (!isPhoneLikelyValid(phone)) { showStatus("err", "נא להזין מספר טלפון תקין."); qs("#phone").focus(); return; }
+
+        const payload = { name, phone, message, createdAt: new Date().toISOString() };
+        console.log("[Contact Form] New submission:", payload);
+
+        showStatus("ok", "ההודעה נשלחה ✅ אחזור אלייך בהקדם.");
+        form.reset();
+      });
+
+      if (fillBtn) {
+        fillBtn.addEventListener("click", () => {
+          qs("#name").value = "יעל כהן";
+          qs("#phone").value = "050-0000000";
+          qs("#message").value = "היי, יש לי כאבי צוואר כבר כמה שבועות. אשמח לשמוע על זמינות לתור בשעות אחה״צ.";
+          showStatus("", "מולא טקסט לדוגמה (רק לצורך הדגמה).");
+        });
+      }
+    }
+
+    initContactLinks();
+    initActiveNav();
+    initToTop();
+    initForm();
+  </script>
+</body>
+</html>
